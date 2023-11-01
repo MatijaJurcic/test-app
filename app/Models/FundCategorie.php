@@ -9,15 +9,17 @@ class FundCategorie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+    ];
 
-      public function subcategories()
-      {
-          return $this->hasMany(FundSubCategory::class, 'category_id');
-      }
-  
-      public function funds()
-      {
-          return $this->hasMany(Fund::class, 'fund_category_id');
-      }
+    public function subcategories()
+    {
+        return $this->hasMany(FundSubCategorie::class, 'categorie_id');
+    }
+
+    public function funds()
+    {
+        return $this->hasMany(Fund::class, 'fund_categorie_id');
+    }
 }

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fund_subcategories', function (Blueprint $table) {
+        Schema::create('fund_sub_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('categorie_id');
             $table->string('name');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('fund_categories');
+            $table->foreign('categorie_id')->references('id')->on('fund_categories');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fund_subcategories');
+        Schema::dropIfExists('fund_sub_categories');
     }
 };

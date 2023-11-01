@@ -9,20 +9,26 @@ class Fund extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'fund_category_id', 'fund_subcategory_id', 'isin', 'wkn'];
+    protected $fillable = [
+        'name',
+        'fund_categorie_id',
+        'fund_sub_categorie_id',
+        'isin',
+        'wkn',
+    ];
 
-     public function category()
-     {
-         return $this->belongsTo(FundCategory::class, 'fund_category_id');
-     }
- 
-     public function subcategory()
-     {
-         return $this->belongsTo(FundSubCategory::class, 'fund_subcategory_id');
-     }
- 
-     public function userFunds()
-     {
-         return $this->hasMany(UserFund::class, 'fund_id');
-     }
+    public function categorie()
+    {
+        return $this->belongsTo(FundCategorie::class, 'fund_categorie_id');
+    }
+
+    public function subcategorie()
+    {
+        return $this->belongsTo(FundSubCategorie::class, 'fund_sub_categorie_id');
+    }
+
+    public function userFunds()
+    {
+        return $this->hasMany(UserFund::class, 'fund_id');
+    }
 }

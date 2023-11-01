@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('funds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('fund_category_id');
-            $table->unsignedBigInteger('fund_subcategory_id');
+            $table->unsignedBigInteger('fund_categorie_id');
+            $table->unsignedBigInteger('fund_sub_categorie_id');
             $table->string('isin');
             $table->string('wkn');
             $table->timestamps();
 
-            $table->foreign('fund_category_id')->references('id')->on('fund_categories');
-            $table->foreign('fund_subcategory_id')->references('id')->on('fund_subcategories');
+            $table->foreign('fund_categorie_id')->references('id')->on('fund_categories');
+            $table->foreign('fund_sub_categorie_id')->references('id')->on('fund_sub_categories');
         });
     }
 
