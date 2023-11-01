@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Fund;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('funds.index', [
+        'funds' => Fund::paginate()
+    ]);
 });
 
 Route::get('/dashboard', function () {
@@ -27,7 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/test', function () {
-    return 'it works';
-})->middleware('auth');
 require __DIR__.'/auth.php';
