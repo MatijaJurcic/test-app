@@ -17,7 +17,8 @@
                     </x-nav-link>
                 </div>
             </div>
-
+            @auth
+                
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
@@ -51,7 +52,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
+            @endauth
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
@@ -71,7 +72,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-
+    @auth
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
@@ -96,5 +97,6 @@
                 </form>
             </div>
         </div>
+        @endauth
     </div>
 </nav>
